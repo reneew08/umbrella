@@ -42,10 +42,8 @@ if minutely_hash
   puts "Next hour: #{next_hour_summary}"
 end
 hourly_data_array=hourly_hash.fetch("data")
-hourly_data_array[1..12] do |hour_hash|
-  pp hour
-  precip=hour.fetch("hour_hash")
-  pp precip
-  puts "In #{hour} hours, there is a #{precip}% chance of precipitation."
+hourly_data_array[1..12].each do |hour|
+  precip=hour.fetch("precipProbability")
+  puts "In test hours, there is a #{(precip*100).round(0)}% chance of precipitation."
 end
 #pp parsed_gmaps
